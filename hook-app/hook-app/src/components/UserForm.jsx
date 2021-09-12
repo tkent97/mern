@@ -1,24 +1,58 @@
 import React, { useState } from 'react';
 
 
-const UserForm = (props) => {
+const UserForm = () => {
     const [firstName, setFirstName] = useState("");
+    const [firstNameError, setFirstNameError] = useState("");
+
     const [lastName, setLastName] = useState("");
+
     const [email, setEmail] = useState("");
+
     const [password, setPassword] = useState("");
 
+    const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
+
+
+
+    const handleValidations = (e) => {
+        const name = e.target.value
+
+        setFirstName(name)
+        if (name.length <= 1) {
+            setFirstNameError("first name must have more than 2 charachters")
+        }
+        if (name.length >= 2) {
+            setFirstNameError('')
+        }
+    }
     const createUser = (e) => {
         e.preventDefault();
         const newUser = { firstName, lastName, email, password };
         console.log("Welcome", newUser);
+        setHasBeenSubmitted(true);
+    };
+
+    const formMessage = () => {
+        if (hasBeenSubmitted) {
+            return "Thank you for submitting the form!";
+        } else {
+            return "Welcome, please submit the form";
+        }
     };
 
     return (
         <div>
             <form className="container" onSubmit={createUser}>
+                <h3>{formMessage()}</h3>
                 <div>
                     <label>First Name: </label>
-                    <input type="text" onChange={(e) => setFirstName(e.target.value)} value={firstName} />
+                    <input type="text" onChange={handleValidations} value={firstName} />
+                    {
+                        firstNameError ?
+                            <p style={{ color: 'red' }}>{firstNameError}</p> :
+                            ''
+                    }
                 </div>
                 <div>
                     <label>Last Name: </label>
