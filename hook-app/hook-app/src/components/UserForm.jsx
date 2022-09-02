@@ -33,18 +33,18 @@ const UserForm = () => {
         setHasBeenSubmitted(true);
     };
 
-    const formMessage = () => {
-        if (hasBeenSubmitted) {
-            return "Thank you for submitting the form!";
-        } else {
-            return "Welcome, please submit the form";
-        }
-    };
+    // const formMessage = () => {
+    //     if (hasBeenSubmitted) {
+    //          "Thank you for submitting the form!";//State variables
+    //     } else {
+    //          "Welcome, please submit the form";
+    //     }
+    // };
 
     return (
         <div>
             <form className="container" onSubmit={createUser}>
-                <h3>{formMessage()}</h3>
+                <h3>{hasBeenSubmitted ? "Thank you for submitting the form!" : "Welcome , please submit the form"}</h3>
                 <div>
                     <label>First Name: </label>
                     <input type="text" onChange={handleValidations} value={firstName} />

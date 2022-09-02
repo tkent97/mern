@@ -19,3 +19,12 @@ class Ninja1 {
         this.health += 10;
     }
 }
+    class SuperNinja extends Ninja1{
+        constructor(name){
+        super(name)
+        this.health = 210
+        this.speed = 10
+        this.strength = 10
+        this.wisdom = 10
+    }
+}

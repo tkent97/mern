@@ -1,0 +1,52 @@
+.slider{
+  position: relative;
+  height:50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image{
+  width: 500px;
+  height:300px;
+  border-radius: 10px;
+}
+
+.right-arrow {
+  position: absolute;
+  top:50%;
+  right: 32px;
+  font-size: 3rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+.left-arrow {
+  position: absolute;
+  top:50%;
+  right: 32px;
+  font-size: 3rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+h1{
+  text-align: center;
+  margin-top: 100px;
+  color: #58b5db;
+  font-size: 50px;
+  font-style: italic;
+  
+}
+h3{
+  text-align: center;
+  color: #000;
+}
+svg{
+  font-size: 50px;
+  color: #58b5db;
+  
+}
